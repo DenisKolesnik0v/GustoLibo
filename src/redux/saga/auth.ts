@@ -61,15 +61,12 @@ function* loginUserSaga(action: { type: string; payload: any }): Generator<any, 
 function* validateTokenSaga() {
     try {
         const token = localStorage.getItem('accessToken');
-        console.log('validateTokenSaga: token', token);
 
         if (!token) {
             yield put(validateTokenFailure());
             return;
         }
 
-        // Логирование кук
-        console.log('Cookies:', document.cookie);
 
         const response: ValidateTokenResponse = yield call(
             () => apiClient.get<ValidateTokenResponse>('/auth/validate-token', {
@@ -86,6 +83,7 @@ function* validateTokenSaga() {
     } catch (error: any) {
         console.error('Ошибка validateTokenSaga:', error.message);
         yield put(validateTokenFailure());
+        localStorage.removeItem('accessToken');
     }
 }
 
