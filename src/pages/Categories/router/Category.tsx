@@ -55,7 +55,7 @@ export const Category: React.FC = () => {
                         src={
                             hasImageError
                                 ? '/img/eat-placeholder.svg'
-                                : `http://localhost:5000/img/categories/${category?.toLowerCase()}.svg`
+                                : `/api/img/categories/${category?.toLowerCase()}.svg`
                         }
                         alt={
                             hasImageError

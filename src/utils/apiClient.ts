@@ -1,5 +1,5 @@
 import Request from './request';
 
-const apiClient = new Request('http://127.0.0.1:5000/api/');
+const apiClient = new Request('/api');
 
 export default apiClient;

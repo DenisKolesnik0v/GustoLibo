@@ -16,7 +16,7 @@ const renderInfo = (type: string, value: number, theme: string) => {
     );
 };
 
-const apiImg = 'http://localhost:5000';
+const apiImg = '/api';
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({
     recipeId,
