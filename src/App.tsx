@@ -24,14 +24,13 @@ import './App.scss';
 
 function App () {
     const { theme } = useTheme();
-    const [searchQuery, setSearchQuery] = useState('');
+    const [, setSearchQuery] = useState('');
 
     const { isAuth } = useSelector((state) => state.auth);
     const accessToken = localStorage.getItem('accessToken');
     const dispatch = useDispatch();
 
     const handleSearchChange = (value: string) => {
-        console.log(searchQuery);
         setSearchQuery(value);
     };
 
