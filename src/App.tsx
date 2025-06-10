@@ -6,7 +6,7 @@ import { useTheme } from 'orcalib-ui-kit';
 
 import { NavigationMenu } from '@components/NavigationMenu';
 import { Header } from '@components/Header/Header';
-import { validateToken } from '@redux/actions/auth';
+import { validateToken, validateTokenFailure } from '@redux/actions/auth';
 import { useSelector } from '@redux/store';
 
 import { WorldMap } from './pages/WorldMap';
@@ -27,7 +27,6 @@ function App () {
     const [, setSearchQuery] = useState('');
 
     const { isAuth } = useSelector((state) => state.auth);
-    const accessToken = localStorage.getItem('accessToken');
     const dispatch = useDispatch();
 
     const handleSearchChange = (value: string) => {
@@ -35,10 +34,15 @@ function App () {
     };
 
     useEffect(() => {
-        if (accessToken) {
+        const token = localStorage.getItem('accessToken');
+        console.log('token:', token);
+
+        if (token) {
             dispatch(validateToken());
+        } else {
+            dispatch(validateTokenFailure());
         }
-    }, [accessToken, dispatch]);
+    }, [dispatch]);
 
     return (
         <div className={classnames('app', `app-${theme}`)}>

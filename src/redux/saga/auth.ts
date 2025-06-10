@@ -61,6 +61,8 @@ function* loginUserSaga(action: { type: string; payload: any }): Generator<any, 
 function* validateTokenSaga() {
     try {
         const token = localStorage.getItem('accessToken');
+        console.log('validateTokenSaga: token', token);
+
         if (!token) {
             yield put(validateTokenFailure());
             return;
@@ -76,6 +78,7 @@ function* validateTokenSaga() {
 
         localStorage.setItem('accessToken', response.accessToken);
         yield put(validateTokenSuccess(response.user));
+
     } catch (error: any) {
         console.error('Ошибка validateTokenSaga:', error.message);
         yield put(validateTokenFailure());
