@@ -14,7 +14,7 @@ import { RecipeDesc } from './RecipeDesc/RecipeDesc';
 import { RecipeCook } from './RecipeCook';
 import { RecipeCompounds } from './RecipeCompounds';
 
-const baseUrl = '/api';
+const baseUrl = '';
 
 export const Recipe: React.FC = () => {
     const { theme } = useTheme();

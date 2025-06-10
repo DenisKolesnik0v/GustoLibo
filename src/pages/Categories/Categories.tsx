@@ -45,7 +45,7 @@ export const Categories: React.FC = () => {
                                     throw new Error('Function not implemented.');
                                 }}
                                 size="lg"
-                                imageUrl={`/api/img/categories/${item.name.toLowerCase()}.svg`}
+                                imageUrl={`/img/categories/${item.name.toLowerCase()}.svg`}
                             />
                         </div>
                     ))
