@@ -27,7 +27,7 @@ class Request {
                 ...headers,
             },
             body: data ? JSON.stringify(data) : undefined,
-            credentials, // ← теперь работает
+            credentials,
         });
 
         if (!response.ok) {

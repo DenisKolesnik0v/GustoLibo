@@ -68,11 +68,15 @@ function* validateTokenSaga() {
             return;
         }
 
+        // Логирование кук
+        console.log('Cookies:', document.cookie);
+
         const response: ValidateTokenResponse = yield call(
             () => apiClient.get<ValidateTokenResponse>('/auth/validate-token', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
+                credentials: 'include',
             })
         );
 
@@ -82,7 +86,6 @@ function* validateTokenSaga() {
     } catch (error: any) {
         console.error('Ошибка validateTokenSaga:', error.message);
         yield put(validateTokenFailure());
-        localStorage.removeItem('accessToken');
     }
 }
 
