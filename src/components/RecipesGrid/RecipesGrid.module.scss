@@ -1,0 +1,27 @@
+@use '../../styles/colors';
+
+.user-recipes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.user-recipe {
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: rgba(40, 40, 40, .2);
+    border-radius: 8px;
+    z-index: 20;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+        color: colors.$red-deep;
+    }
+}

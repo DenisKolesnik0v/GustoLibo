@@ -1,0 +1,38 @@
+@use '../../../styles/colors';
+
+.editing-user-data {
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-right: 16px;
+    }
+
+    &__label {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: colors.$gray-dark;
+    }
+}
+
+.type-input {
+    font-size: 16px;
+    color: colors.$text-secondary;
+}
+
+.button-observ {
+    display: flex;
+}
+
+.logout-button {
+    display: flex;
+    justify-content: flex-end;
+}

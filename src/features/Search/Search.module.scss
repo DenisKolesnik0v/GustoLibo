@@ -1,0 +1,110 @@
+@use '../../styles/colors';
+
+.search-wrapper {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 855px) {
+        display: none;
+    }
+
+    &.search-wrapper-expanded {
+        z-index: 1000;
+        pointer-events: auto;
+    }
+
+    &.search-wrapper-collapsed {
+        pointer-events: none;
+    }
+}
+
+.search-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid colors.$gray-medium;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+
+    &-expanded {
+        width: 90vw;
+        max-width: 600px;
+        border-radius: 20px;
+        border-color: colors.$gray-medium;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+        &-theme {
+            &-light {
+                background: colors.$background-secondary;
+            }
+
+            &-dark {
+                background: colors.$dark-accent;
+            }
+        }
+    }
+
+    .search-input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        text-indent: 36px;
+        font-size: 14px;
+        color: black;
+        transition: all 0.3s ease;
+        z-index: -1;
+
+        &-collapsed {
+            display: none;
+        }
+
+        &-theme {
+            &-light {
+                color: colors.$text-secondary;
+                background: colors.$background-secondary;
+            }
+
+            &-dark {
+                color: colors.$text-primary;
+                background: colors.$dark-accent;
+            }
+        }
+
+        &:focus {
+            border-radius: 20px;
+            z-index: 2;
+        }
+    }
+
+    .clear-icon,
+    .search-submit {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        cursor: pointer;
+    }
+
+    .clear-icon {
+        right: 40px;
+    }
+}

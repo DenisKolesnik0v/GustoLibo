@@ -1,0 +1,150 @@
+@use '../../styles/colors';
+
+.user-recipes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.user-recipe {
+    position: relative;
+    max-width: 200px;
+    width: 100%;
+}
+
+
+.filterOpenClose {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+
+.title {
+    font-size: 48px;
+
+    &-theme {
+        &-light {
+            color: colors.$red-deep;
+        }
+
+        &-dark {
+            color: colors.$red-vine;
+        }
+    }
+}
+
+.description-home {
+    font-size: 24px;
+
+    &-theme {
+        &-light {
+            color: colors.$text-secondary;
+        }
+
+        &-dark {
+            color: colors.$text-primary;
+        }
+    }
+}
+
+.border__line {
+    border-bottom: 1px solid gray;
+    margin: 24px 0;
+}
+
+.toggleFilter {
+    background-color: colors.$red-vine;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px auto 12px;
+    display: block;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: colors.$red-deep;
+    }
+}
+
+.filterPanel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    max-height: 600px;
+    max-height: auto;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &-theme {
+        &-light {
+            background-color: colors.$gray-disabled;
+        }
+
+        &-dark {
+            background-color: colors.$dark-accent;
+        }
+    }
+
+    @media (max-width: 854px) {
+        max-height: none;
+        flex-wrap: nowrap;
+    }
+}
+
+.filterLabel {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.calorieInput {
+    width: 80px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.filterButtons {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 320px;
+    width: 100%;
+    gap: 12px;
+}
+
+.acceptButton, .resetButton {
+    padding: 8px 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.acceptButton {
+    background-color: colors.$red-deep;
+    color: white;
+
+    &:hover {
+        background-color: colors.$red-deep;
+    }
+}
+
+.resetButton {
+    background-color: #ccc;
+    color: black;
+
+    &:hover {
+        background-color: #aaa;
+    }
+}

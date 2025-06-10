@@ -1,0 +1,15 @@
+@use '../../styles/colors';
+
+.error-page {
+    width: 100%;
+
+    &-theme {
+        &-light {
+            color: colors.$text-secondary;
+        }
+
+        &-dark {
+            color: colors.$text-primary;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@use '../../styles/colors';
+
+.theme-switcher {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.theme-switcher.dark {
+  background-color: colors.$red-vine;
+}
+
+.switch-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-switcher.dark .switch-slider {
+  transform: translateX(30px);
+  color: black;
+}
+
+.theme-switcher:hover {
+  opacity: 0.9;
+}

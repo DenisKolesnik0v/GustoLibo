@@ -1,0 +1,89 @@
+@use '../../../styles/colors';
+
+.comp {
+    width: 100%;
+
+    &__list {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 20px;
+            position: relative;
+
+            &-name {
+                flex: 0 1 auto;
+                padding-right: 8px;
+                word-break: break-word;
+                white-space: normal;
+                border: 1px solid colors.$red-vine;
+                border-radius: 8px;
+                text-align: center;
+                padding: 2px 4px;
+                max-width: 45%;
+            }
+
+            &-amount {
+                flex: 0 1 auto;
+                padding-left: 8px;
+                white-space: nowrap;
+                max-width: 30%;
+            }
+
+            &-divider {
+                flex: 1;
+                min-width: 20px;
+                height: 1px;
+                border-top: 2px dashed;
+                position: relative;
+
+                &-theme {
+                    &-light {
+                        border-color: colors.$red-deep;
+                    }
+                    &-dark {
+                        border-color: colors.$red-vine;
+                    }
+                }
+            }
+
+            &-counter {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 32px;
+                height: 32px;
+                text-align: center;
+                border: 2px solid;
+                border-radius: 100%;
+                z-index: 2;
+
+                &-theme {
+                    &-light {
+                        border-color: colors.$red-deep;
+                        background: colors.$background-secondary;
+                    }
+                    &-dark {
+                        border-color: colors.$red-vine;
+                        background: colors.$dark-accent;
+                    }
+                }
+            }
+
+            &-theme {
+                &-light {
+                    color: colors.$text-secondary;
+                }
+                &-dark {
+                    color: colors.$text-primary;
+                }
+            }
+        }
+    }
+}

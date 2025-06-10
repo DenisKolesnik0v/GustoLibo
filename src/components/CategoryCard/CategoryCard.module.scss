@@ -1,0 +1,152 @@
+@use '../../styles/colors';
+
+.category-card {
+    position: relative;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 100%;
+
+    --fallback-bg-light: #{colors.$background-secondary};
+    --fallback-bg-dark: #{colors.$background-primary};
+    --fallback-icon-color-light: #{colors.$text-secondary};
+    --fallback-icon-color-dark: #{colors.$text-primary};
+
+    &-theme {
+        &-light {
+            --overlay-color: rgba(255, 255, 255, 0.3);
+            --text-color: #{colors.$text-primary};
+            --count-bg: rgba(255, 255, 255, 0.9);
+            --count-color: #{colors.$text-secondary};
+            --fallback-bg: var(--fallback-bg-light);
+            --fallback-icon-color: var(--fallback-icon-color-light);
+        }
+
+        &-dark {
+            --overlay-color: rgba(0, 0, 0, 0.3);
+            --text-color: #{colors.$text-secondary};
+            --count-bg: rgba(0, 0, 0, 0.7);
+            --count-color: #{colors.$text-primary};
+            --fallback-bg: var(--fallback-bg-dark);
+            --fallback-icon-color: var(--fallback-icon-color-dark);
+        }
+    }
+
+    &.hovered {
+        .overlay {
+            background-color: var(--overlay-color);
+        }
+
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-color: var(--fallback-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: inherit;
+            z-index: 0;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fallback-icon {
+            position: absolute;
+            z-index: 0;
+            color: var(--fallback-icon-color);
+            font-size: 48px;
+            opacity: 0.5;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        z-index: 2;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: var(--text-color);
+        z-index: 3;
+    }
+
+    .title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+
+        &-theme {
+            &-light {
+                color: var(--text-color);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 5px rgba(0, 0, 0, 0.8);
+            }
+            &-dark {
+                color: var(--text-color);
+                text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6), 0 0 6px rgba(255, 255, 255, 0.4);
+            }
+        }
+    }
+
+    .recipeCount {
+        background: var(--count-bg);
+        color: var(--count-color);
+        padding: 4px 10px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 600;
+        z-index: 3;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        min-width: 30px;
+        text-align: center;
+    }
+
+    .text-wrapper {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+        padding: 16px 24px 8px;
+        margin: -16px -16px 0;
+        border-radius: 0 0 12px 12px;
+    }
+
+    &-size-lg {
+        max-width: 350px;
+        max-height: 350px;
+    }
+}

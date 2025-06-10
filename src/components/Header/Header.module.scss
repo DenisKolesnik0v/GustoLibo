@@ -1,0 +1,108 @@
+@use '../../styles/colors.scss';
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: header;
+    gap: 20px;
+    max-width: 1440px;
+    width: 100%;
+    height: 100%;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    border-bottom: colors.$gray-medium solid 1px;
+
+    &__title {
+        font-size: 2.5rem;
+        color: colors.$red-vine;
+        cursor: pointer;
+    }
+
+    &__actions {
+        max-width: 140px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        &-profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    &__mobile-search {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        @media (max-width: 854px) {
+            display: none;
+        }
+
+        &--theme-light {
+            .header__user-icon {
+                border-color: black;
+                color: black;
+            }
+        }
+
+        &--theme-dark {
+            .header__user-icon {
+                border-color: white;
+                color: white;
+            }
+        }
+    }
+
+    &__user-icon {
+        border: solid 2px;
+        padding: 2px 4px;
+        border-radius: 100%;
+    }
+
+    &__search-overlay {
+        position: fixed;
+        top: .4%;
+        left: 26%;
+        width: 100%;
+        max-width: 1180px;
+        height: 100vh;
+        z-index: 1000;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (max-width: 854px) {
+            left: 0;
+        }
+    }
+
+    &__search-overlay-content {
+        width: 100%;
+        height: 100vh;
+        max-width: 100%;
+        margin-top: 60px;
+        padding: 20px;
+
+        &__theme {
+            &-light {
+                background: colors.$background-secondary;
+            }
+
+            &-dark {
+                background: colors.$dark-accent;
+            }
+        }
+    }
+}

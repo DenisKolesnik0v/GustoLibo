@@ -1,0 +1,35 @@
+@use '../../styles/colors';
+
+.auth-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 0 12px 24px;
+}
+
+.auth-link-to {
+    padding-top: 12px;
+    font-size: 18px;
+    color: colors.$red-light;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-decoration-color: colors.$red-light;
+    }
+}
+
+.error-label {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    position: relative;
+    height: 24px;
+    width: 100%;
+    font-size: 16px;
+    color: red;
+}

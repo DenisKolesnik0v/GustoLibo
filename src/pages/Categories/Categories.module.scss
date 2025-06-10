@@ -1,0 +1,19 @@
+@use '../../styles/colors';
+
+.title {
+    font-size: 48px;
+
+    &-theme {
+        &-light {
+            color: colors.$red-deep;
+        }
+        &-dark {
+            color: colors.$red-vine;
+        }
+    }
+}
+
+.border__line {
+    border-bottom: 1px solid gray;
+    margin: 24px 0;
+}

@@ -1,0 +1,18 @@
+@use '../../../styles/colors';
+
+.heading {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-eio);
+
+    &__theme {
+        &-light {
+            color: colors.$text-secondary;
+        }
+
+        &-dark {
+            color: colors.$text-primary;
+        }
+    }
+}

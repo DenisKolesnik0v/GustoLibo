@@ -1,0 +1,10 @@
+@use '../../../styles/colors';
+
+.editing-user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}

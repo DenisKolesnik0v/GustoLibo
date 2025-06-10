@@ -1,0 +1,99 @@
+@use '../../styles/colors';
+@use '../../styles/extra';
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.profile-header {
+    max-height: 200px;
+    height: 100%;
+    background: colors.$gray-light;
+    border-radius: 8px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.user-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: rgba(3, 3, 3, .2) 1px 1px 1px;
+}
+
+.user-data {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    bottom: -64px;
+    font-size: 32px;
+
+    &-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        &-theme {
+            &-light {
+                color: colors.$text-secondary;
+            }
+
+            &-dark {
+                color: colors.$text-primary;
+            }
+        }
+
+        @media(max-width: 424px) {
+            gap: 0;
+        }
+    }
+
+    &-perv {
+        display: flex;
+        align-items: flex-end;
+        gap: 32px;
+
+        @media(max-width: 424px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+    }
+
+    @media(max-width: 424px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+
+        bottom: -132px;
+    }
+}
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 8px;
+    padding: 0 24px 16px;
+    margin-bottom: 24px;
+
+    &-theme {
+        &-light {
+            @include extra.themeBackground(colors.$background-thr);
+        }
+
+        &-dark {
+            @include extra.themeBackground(colors.$dark-border);
+        }
+    }
+
+    @media(max-width: 424px) {
+        margin-top: 64px;
+    }
+}

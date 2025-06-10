@@ -1,0 +1,73 @@
+@use '../../../styles/colors';
+
+.recipe-cook {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 24px;
+
+    &__list {
+        list-style: none;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__step {
+        position: relative;
+        width: 100%;
+        padding: 24px 0;
+        text-align: center;
+        border: 3px dashed colors.$red-vine;
+        border-radius: 0;
+
+        &:first-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 8px;
+        }
+
+        &:last-child {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 8px;
+        }
+
+        &:not(:first-child) {
+            border-top: none;
+        }
+
+        &:nth-child(odd) {
+            border-left: none;
+        }
+
+        &:nth-child(even) {
+            border-right: none;
+        }
+    }
+
+    &__item {
+        font-size: clamp(1.1rem, 1.2vw, 1.4rem);
+        padding: 0 16px;
+
+        &-theme {
+            &-light {
+                color: colors.$text-secondary;
+            }
+
+            &-dark {
+                color: colors.$text-primary;
+            }
+        }
+    }
+}
+
+.flat-circle {
+    position: absolute;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid colors.$red-deep;
+    background: white;
+    z-index: 1;
+    padding-top: 6px;
+}

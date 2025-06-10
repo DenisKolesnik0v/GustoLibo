@@ -1,0 +1,29 @@
+.loader-container {
+    position: relative;
+    width: 100%;
+    height: var(--loader-height, 4px);
+    background-color: var(--loader-bg-color, #f0f0f0);
+    overflow: hidden;
+
+    .loader-bar {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--loader-color, #3f51b5);
+        animation: loader-animation var(--loader-speed, 1.5s) ease-in-out infinite;
+    }
+}
+
+@keyframes loader-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

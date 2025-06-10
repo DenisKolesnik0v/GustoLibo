@@ -1,0 +1,44 @@
+@use '../../../styles/colors';
+
+.devices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-device {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 4px 8px;
+        border: 1px solid colors.$dark-text-secondary;
+        border-radius: 8px;
+
+        transition: background .2s ease-in-out, border-color .2s ease-in-out;
+
+        &-theme {
+            &-light {
+                color: colors.$text-secondary;
+                background: colors.$background-secondary;
+            }
+
+            &-dark {
+                color: colors.$text-primary;
+                background: colors.$dark-background-secondary;
+            }
+        }
+
+        &:hover {
+            border-color: colors.$red-deep;
+            cursor: pointer;
+
+            .device-data {
+                color: colors.$red-vine;
+            }
+        }
+    }
+}
+
+.mirror {
+    transform: scaleX(-1);
+}
